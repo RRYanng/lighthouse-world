@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
@@ -65,6 +65,6 @@ app.post('/api/lighthouse-detail', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`🗼 世界灯塔集 running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🏮 世界灯塔集 running at http://0.0.0.0:${PORT}`);
 });
